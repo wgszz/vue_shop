@@ -77,9 +77,8 @@
                         return;
                     } else {
                         //通过this访问原型上的$http成员通过它发送post请求   路径是login   将loginForm表单传给页面 
-                        this.$http.post('login', this.loginForm)
+                        this.$axios.post('login', this.loginForm)
                             .then(res => {
-                                console.log(res)
                                 // element ui 组件中有message弹窗组件，其中有一系列方法可以弹出提示消息
                                 if (res.data.meta.status !== 200) return this.$message.error("登录失败！");
                                 this.$message.success("登陆成功！")

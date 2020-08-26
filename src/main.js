@@ -11,9 +11,15 @@ import './styles/index.css'
 
 import axios from 'axios'
 //配置请求的根路径
-axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://119.23.53.78:8888/api/private/v1/'
+axios.interceptors.request.use(config=>{
+  console.log(config)
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  // 在最后必须return config
+  return config
+})
 //将axios包挂载到vue的原型对象上
-Vue.prototype.$http = axios
+Vue.prototype.$axios = axios
 
 Vue.use(ElementUI)
 
