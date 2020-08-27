@@ -86,7 +86,7 @@
                     } else {
                         this.menulist = res.data.data
                     }
-                    console.log(res.data)
+                    //console.log(res.data)
                 })
             },
             toggleCollapse(){
